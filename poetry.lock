@@ -163,6 +163,17 @@ python-versions = ">=3.6.0"
 unicode-backport = ["unicodedata2"]
 
 [[package]]
+name = "click"
+version = "8.1.3"
+description = "Composable command line interface toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -582,6 +593,20 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "markdown"
+version = "3.4.1"
+description = "Python implementation of Markdown."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
+
+[package.extras]
+testing = ["coverage", "pyyaml"]
+
+[[package]]
 name = "markupsafe"
 version = "2.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -629,12 +654,31 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "mdown"
+version = "2020.12.3"
+description = "markdown generator"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "mistune"
 version = "2.0.4"
 description = "A sane Markdown parser with useful plugins and renderers"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "mkdir"
+version = "2020.12.3"
+description = "mkdir"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+values = "*"
 
 [[package]]
 name = "mypy"
@@ -846,6 +890,14 @@ optional = false
 python-versions = ">=3.8"
 
 [[package]]
+name = "orderdict"
+version = "2020.12.3"
+description = "order dict"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "packaging"
 version = "21.3"
 description = "Core utilities for Python packages"
@@ -992,6 +1044,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "public"
+version = "2020.12.3"
+description = "replace __all__ with @public.add decorator"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pure-eval"
 version = "0.2.2"
 description = "Safely evaluate AST nodes without side effects"
@@ -1132,6 +1192,23 @@ cffi = {version = "*", markers = "implementation_name == \"pypy\""}
 py = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
+name = "readme-md"
+version = "2019.1.28"
+description = "README.md generator"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Click = "*"
+Markdown = "*"
+mdown = "*"
+public = "*"
+requests = "*"
+setupcfg = "*"
+setuptools = "*"
+
+[[package]]
 name = "requests"
 version = "2.28.1"
 description = "Python HTTP for Humans."
@@ -1166,6 +1243,24 @@ doc = ["matplotlib (>2)", "numpydoc", "pydata-sphinx-theme (==0.9.0)", "sphinx (
 test = ["asv", "gmpy2", "mpmath", "pytest", "pytest-cov", "pytest-xdist", "scikit-umfpack", "threadpoolctl"]
 
 [[package]]
+name = "seaborn"
+version = "0.12.1"
+description = "Statistical data visualization"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+matplotlib = ">=3.1,<3.6.1 || >3.6.1"
+numpy = ">=1.17"
+pandas = ">=0.25"
+
+[package.extras]
+dev = ["flake8", "mypy", "pandas-stubs", "pre-commit", "pytest", "pytest-cov", "pytest-xdist"]
+docs = ["ipykernel", "nbconvert", "numpydoc", "pydata_sphinx_theme (==0.10.0rc2)", "pyyaml", "sphinx-copybutton", "sphinx-design", "sphinx-issues"]
+stats = ["scipy (>=1.3)", "statsmodels (>=0.10)"]
+
+[[package]]
 name = "send2trash"
 version = "1.8.0"
 description = "Send file to trash natively under Mac OS X, Windows and Linux."
@@ -1177,6 +1272,19 @@ python-versions = "*"
 nativelib = ["pyobjc-framework-Cocoa", "pywin32"]
 objc = ["pyobjc-framework-Cocoa"]
 win32 = ["pywin32"]
+
+[[package]]
+name = "setupcfg"
+version = "2020.12.3"
+description = "setup.cfg helper"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+click = "*"
+orderdict = "*"
+write = "*"
 
 [[package]]
 name = "setuptools"
@@ -1331,6 +1439,14 @@ secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "p
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "values"
+version = "2020.12.3"
+description = "values.get(input) - create list from input"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "wcwidth"
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -1360,6 +1476,17 @@ optional = ["python-socks", "wsaccel"]
 test = ["websockets"]
 
 [[package]]
+name = "write"
+version = "2020.12.3"
+description = ""
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+mkdir = "*"
+
+[[package]]
 name = "zipp"
 version = "3.10.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -1374,7 +1501,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "4c19c29df1df38d4b4b62ee948907c5bb21e2a9bfa4a5e8b3958a4fec7e834c3"
+content-hash = "87ae3a6b451c8d6ae3c5d29670ed06e0585f154c46abf72734a88d8376e36c67"
 
 [metadata.files]
 anyio = [
@@ -1509,6 +1636,10 @@ cffi = [
 charset-normalizer = [
     {file = "charset-normalizer-2.1.1.tar.gz", hash = "sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"},
     {file = "charset_normalizer-2.1.1-py3-none-any.whl", hash = "sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"},
+]
+click = [
+    {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
+    {file = "click-8.1.3.tar.gz", hash = "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"},
 ]
 colorama = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
@@ -1775,6 +1906,10 @@ kiwisolver = [
     {file = "kiwisolver-1.4.4-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:36dafec3d6d6088d34e2de6b85f9d8e2324eb734162fba59d2ba9ed7a2043d5b"},
     {file = "kiwisolver-1.4.4.tar.gz", hash = "sha256:d41997519fcba4a1e46eb4a2fe31bc12f0ff957b2b81bac28db24744f333e955"},
 ]
+markdown = [
+    {file = "Markdown-3.4.1-py3-none-any.whl", hash = "sha256:08fb8465cffd03d10b9dd34a5c3fea908e20391a2a90b88d66362cb05beed186"},
+    {file = "Markdown-3.4.1.tar.gz", hash = "sha256:3b809086bb6efad416156e00a0da66fe47618a5d6918dd688f53f40c8e4cfeff"},
+]
 markupsafe = [
     {file = "MarkupSafe-2.1.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:86b1f75c4e7c2ac2ccdaec2b9022845dbb81880ca318bb7a0a01fbf7813e3812"},
     {file = "MarkupSafe-2.1.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f121a1420d4e173a5d96e47e9a0c0dcff965afdf1626d28de1460815f7c4ee7a"},
@@ -1868,9 +2003,15 @@ mccabe = [
     {file = "mccabe-0.7.0-py2.py3-none-any.whl", hash = "sha256:6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"},
     {file = "mccabe-0.7.0.tar.gz", hash = "sha256:348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325"},
 ]
+mdown = [
+    {file = "mdown-2020.12.3.tar.gz", hash = "sha256:4f9687ece5e54a12a83faaf45b89e7a274f968de628cc1be28aa8d3ea35a0346"},
+]
 mistune = [
     {file = "mistune-2.0.4-py2.py3-none-any.whl", hash = "sha256:182cc5ee6f8ed1b807de6b7bb50155df7b66495412836b9a74c8fbdfc75fe36d"},
     {file = "mistune-2.0.4.tar.gz", hash = "sha256:9ee0a66053e2267aba772c71e06891fa8f1af6d4b01d5e84e267b4570d4d9808"},
+]
+mkdir = [
+    {file = "mkdir-2020.12.3.tar.gz", hash = "sha256:7fe234e9412b1dea78a09c26f31d4f83fd760648e7a9c08108081e1bed8f7da1"},
 ]
 mypy = [
     {file = "mypy-0.991-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7d17e0a9707d0772f4a7b878f04b4fd11f6f5bcb9b3813975a9b13c9332153ab"},
@@ -1969,6 +2110,9 @@ numpy = [
     {file = "numpy-1.23.4-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:296d17aed51161dbad3c67ed6d164e51fcd18dbcd5dd4f9d0a9c6055dce30810"},
     {file = "numpy-1.23.4-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:4d52914c88b4930dafb6c48ba5115a96cbab40f45740239d9f4159c4ba779962"},
     {file = "numpy-1.23.4.tar.gz", hash = "sha256:ed2cc92af0efad20198638c69bb0fc2870a58dabfba6eb722c933b48556c686c"},
+]
+orderdict = [
+    {file = "orderdict-2020.12.3.tar.gz", hash = "sha256:a4e15f0085f0b3152dd45fd907f9036d1ed0e7f004920ce0a05c7190d2cacdb0"},
 ]
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
@@ -2117,6 +2261,9 @@ psutil = [
 ptyprocess = [
     {file = "ptyprocess-0.7.0-py2.py3-none-any.whl", hash = "sha256:4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35"},
     {file = "ptyprocess-0.7.0.tar.gz", hash = "sha256:5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220"},
+]
+public = [
+    {file = "public-2020.12.3.tar.gz", hash = "sha256:2919ef9037e2a2d2563f8431adaa09b6b129d5398d0a687e42f00593484a9aa2"},
 ]
 pure-eval = [
     {file = "pure_eval-0.2.2-py3-none-any.whl", hash = "sha256:01eaab343580944bc56080ebe0a674b39ec44a945e6d09ba7db3cb8cec289350"},
@@ -2282,6 +2429,10 @@ pyzmq = [
     {file = "pyzmq-24.0.1-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:687700f8371643916a1d2c61f3fdaa630407dd205c38afff936545d7b7466066"},
     {file = "pyzmq-24.0.1.tar.gz", hash = "sha256:216f5d7dbb67166759e59b0479bca82b8acf9bed6015b526b8eb10143fb08e77"},
 ]
+readme-md = [
+    {file = "readme-md-2019.1.28.tar.gz", hash = "sha256:01492f210443fa37a0b34e051ae24ca23e4a92f0f39ef03b5c02cf09d76df455"},
+    {file = "readme_md-2019.1.28-py2.py3-none-any.whl", hash = "sha256:687b2799d9e1297f018b71a2fb4aaa22b2e23de4bf30b2b7ee4f457fcef8247f"},
+]
 requests = [
     {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
     {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},
@@ -2309,9 +2460,16 @@ scipy = [
     {file = "scipy-1.9.3-cp39-cp39-win_amd64.whl", hash = "sha256:5b88e6d91ad9d59478fafe92a7c757d00c59e3bdc3331be8ada76a4f8d683f58"},
     {file = "scipy-1.9.3.tar.gz", hash = "sha256:fbc5c05c85c1a02be77b1ff591087c83bc44579c6d2bd9fb798bb64ea5e1a027"},
 ]
+seaborn = [
+    {file = "seaborn-0.12.1-py3-none-any.whl", hash = "sha256:a9eb39cba095fcb1e4c89a7fab1c57137d70a715a7f2eefcd41c9913c4d4ed65"},
+    {file = "seaborn-0.12.1.tar.gz", hash = "sha256:bb1eb1d51d3097368c187c3ef089c0288ec1fe8aa1c69fb324c68aa1d02df4c1"},
+]
 send2trash = [
     {file = "Send2Trash-1.8.0-py3-none-any.whl", hash = "sha256:f20eaadfdb517eaca5ce077640cb261c7d2698385a6a0f072a4a5447fd49fa08"},
     {file = "Send2Trash-1.8.0.tar.gz", hash = "sha256:d2c24762fd3759860a0aff155e45871447ea58d2be6bdd39b5c8f966a0c99c2d"},
+]
+setupcfg = [
+    {file = "setupcfg-2020.12.3.tar.gz", hash = "sha256:80a6454e75e77eaacadb5182933b5c92b21a113bfd10926b0bab075a2f74533e"},
 ]
 setuptools = [
     {file = "setuptools-65.6.0-py3-none-any.whl", hash = "sha256:6211d2f5eddad8757bd0484923ca7c0a6302ebc4ab32ea5e94357176e0ca0840"},
@@ -2374,6 +2532,9 @@ urllib3 = [
     {file = "urllib3-1.26.12-py2.py3-none-any.whl", hash = "sha256:b930dd878d5a8afb066a637fbb35144fe7901e3b209d1cd4f524bd0e9deee997"},
     {file = "urllib3-1.26.12.tar.gz", hash = "sha256:3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"},
 ]
+values = [
+    {file = "values-2020.12.3.tar.gz", hash = "sha256:30b1b74674b546188b77d8398de17ea49f3692191114da43c703bda5b54402f5"},
+]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
     {file = "wcwidth-0.2.5.tar.gz", hash = "sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"},
@@ -2385,6 +2546,9 @@ webencodings = [
 websocket-client = [
     {file = "websocket-client-1.4.2.tar.gz", hash = "sha256:d6e8f90ca8e2dd4e8027c4561adeb9456b54044312dba655e7cae652ceb9ae59"},
     {file = "websocket_client-1.4.2-py3-none-any.whl", hash = "sha256:d6b06432f184438d99ac1f456eaf22fe1ade524c3dd16e661142dc54e9cba574"},
+]
+write = [
+    {file = "write-2020.12.3.tar.gz", hash = "sha256:ab53f74dd66ededa8dc3e32623e194d72fa78c1fdbe24ae30099de86398b17d4"},
 ]
 zipp = [
     {file = "zipp-3.10.0-py3-none-any.whl", hash = "sha256:4fcb6f278987a6605757302a6e40e896257570d11c51628968ccb2a47e80c6c1"},
